@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<form action="/posts" method="POST">
+    <label> Enter Title:
+        <input type="text" name="title">
+    </label> <br>
+    <label> Insert YT:
+        <input type="text" name="video">
+    </label> <br>
+    <label> Enter Description:
+        <input type="text" name="description">
+    </label> <br>
+    <button type="submit">Create New Post</button>
+</form>
+
+<%- include('../partials/footer') %>

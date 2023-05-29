@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<% posts.forEach(function(p) { %>
+    <a href="/posts/<%= p._id %>">
+        <div>
+            <h1><%= p.title %></h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= p.video %>" frameborder="0"></iframe>
+        </div>
+    </a>
+<% }) %>
+
+<%- include('../partials/footer') %>
