@@ -3,17 +3,17 @@
 <h3><%= post.userName %></h3>
 <h1><%= post.title %></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
-<p><%= post.description %></p>
+<p><%- post.description.replaceAll('\n', '<br>') %></p>
 <h2>Comments:</h2>
 <% post.comments.forEach(function(c) { %>
     <div>
         <h4><%= c.userName %></h4>
-        <h3><%= c.content %></h3>
+        <h3><%- c.content.replaceAll('\n', '<br>') %></h3>
     </div>
 <% }) %>
 <form action="/posts/<%= post._id %>/comments" method="POST">
     <label>Add Comment:
-        <input type="text" name="content">
+        <textarea name="content"></textarea>
         <button type="submit">Submit</button>
     </label>
 </form>
