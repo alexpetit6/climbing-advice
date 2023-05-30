@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newPost,
     create, 
-    show
+    show, 
+    delete: deletePost
 }
 
 function newPost(req, res) {
@@ -22,22 +23,27 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    post = await Post.findById(req.params.id)
+    post = await Post.findById(req.params.id);
     res.render('posts/show', {
         post,
-        title: 'Post'
+        title: 'Post',
     })
 }
 
 async function create(req, res) {
-    req.body.user = req.user._id
-    req.body.userName = req.user.name
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
     //removes everything before the id
-    req.body.video = req.body.video.slice(17)
+    req.body.video = req.body.video.slice(17);
     try {
-        const post = await Post.create(req.body)
+        const post = await Post.create(req.body);
         res.redirect(`/posts/${post._id}`)
     } catch (err) {
         console.log(err)
     }
+}
+
+async function deletePost(req, res) {
+    await Post.deleteOne({ _id: req.params.id, user: req.user._id });
+    res.redirect('/posts')
 }

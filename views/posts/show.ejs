@@ -1,5 +1,10 @@
 <%- include('../partials/header') %>
 
+<% if(user?._id.equals(post.user)) { %>
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Post</button>
+    </form>
+<% } %>
 <h3><%= post.userName %></h3>
 <h1><%= post.title %></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
