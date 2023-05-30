@@ -3,6 +3,6 @@ var router = express.Router();
 var commentsCtrl = require('../controllers/comments')
 var ensureLoggedIn = require('../config/ensureLoggedIn')
 
-router.post('/posts/:id/comments', commentsCtrl.create)
+router.post('/posts/:id/comments', ensureLoggedIn, commentsCtrl.create)
 
 module.exports = router;
