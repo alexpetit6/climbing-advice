@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 
+<h3><%= post.userName %></h3>
 <h1><%= post.title %></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
 <p><%= post.description %></p>
 <h2>Comments:</h2>
 <% post.comments.forEach(function(c) { %>
     <div>
+        <h4><%= c.userName %></h4>
         <h3><%= c.content %></h3>
     </div>
 <% }) %>

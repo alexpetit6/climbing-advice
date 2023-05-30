@@ -6,6 +6,12 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+     },
+     userName: String    
 })
 
 const postSchema = new Schema({
@@ -21,6 +27,12 @@ const postSchema = new Schema({
         required: true
     },
     comments: [commentSchema],
+    user: {
+       type: Schema.Types.ObjectId,
+       ref: 'User',
+       required: true
+    },
+    userName: String
 })
 
 module.exports = mongoose.model('Post', postSchema)

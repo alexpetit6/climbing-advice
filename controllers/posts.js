@@ -30,6 +30,8 @@ async function show(req, res) {
 }
 
 async function create(req, res) {
+    req.body.user = req.user._id
+    req.body.userName = req.user.name
     //removes everything before the id
     req.body.video = req.body.video.slice(17)
     try {
