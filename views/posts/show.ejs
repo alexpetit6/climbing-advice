@@ -9,14 +9,19 @@
 <h1><%= post.title %></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
 <p><%- post.description.replaceAll('\n', '<br>') %></p>
+<% if(user?._id.equals(post.user)) { %>
+    <a href="/posts/<%= post._id %>/edit">Edit Post</a>
+<% } %>
 <h2>Comments:</h2>
 <% post.comments.forEach(function(c) { %>
     <div>
         <h4><%= c.userName %></h4>
         <h3><%- c.content.replaceAll('\n', '<br>') %></h3>
-        <form action="/posts/<%= c._id %>/comments?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-        </form>
+        <% if(user?._id.equals(post.user)) { %>
+            <form action="/posts/<%= c._id %>/comments?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>
+        <% } %>
     </div>
 <% }) %>
 <form action="/posts/<%= post._id %>/comments" method="POST">
