@@ -1,8 +1,53 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+html, body {
+  min-height: 100%;
+  font-family: 'Mukta', sans-serif;
+}
+
+.title {
+  background-color: rgb(0, 0, 51);
+  color: white;
+  margin-bottom: 0;
+  padding: 5vmin;
+  padding-bottom: 3vmin;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.header {
+  display: grid;
+  gap: 10vmin;
+  margin-top: 0;
+  background-color: rgb(0, 0, 51);
+}
+.header > a {
+  text-decoration: none;
+  padding: 4vmin;
+  border: solid 1vmin rgb(255 250 129);
+  border-bottom: 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 4vmin;
+  color:rgb(255 250 129)
+}
+
+.header > a:hover {
+  text-decoration: underline;
+}
+
+#logged-in {
+  grid-template-columns: 1fr 4fr repeat(3, 1fr);
+}
+
+#logged-out {
+  grid-template-columns: 1fr 5fr repeat(2, 1fr);
+}
+
+#home {
+  border-left: 0;
+}
+
+#login, #logout {
+  border-right: none;
 }
