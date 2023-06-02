@@ -24,11 +24,13 @@
             </form>
         <% } %>
     <% }) %>
-    <form class="post" id="post-comment" action="/posts/<%= post._id %>/comments" method="POST">
-        <h2>Add Comment:</h2>
-        <textarea name="content"></textarea>
-        <button type="submit">Submit</button>
-    </form>
+    <% if (user) { %>
+        <form class="post" id="post-comment" action="/posts/<%= post._id %>/comments" method="POST">
+            <h2>Add Comment:</h2>
+            <textarea name="content"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    <% } %>
 </article>
         
         <%- include('../partials/footer') %>
