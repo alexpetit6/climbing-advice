@@ -59,7 +59,6 @@ html, body {
 }
 
 .text {
-  margin-left: 5vmin;
   text-align: center;
 }
 
@@ -189,6 +188,7 @@ i {
 }
 
 #delete:hover {
+  cursor: pointer;
   color: red;
 }
 
@@ -222,6 +222,8 @@ i {
 }
 
 .posts > a {
+  display: flex;
+  flex-direction: column;
   color: rgb(0, 0, 51);
   margin: 2vmin;
   text-decoration: none;
@@ -235,5 +237,14 @@ i {
 
 .posts > a > * {
   margin: 0;
+}
+
+.posts > a > h1 {
+  width: 80vmin;
+}
+
+.posts > a > iframe {
+  align-self: center;
+  padding-bottom: 1vmin;
 }
 
