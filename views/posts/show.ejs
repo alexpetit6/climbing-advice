@@ -1,34 +1,35 @@
 <%- include('../partials/header') %>
 
-<% if(user?._id.equals(post.user)) { %>
-    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Post</button>
-    </form>
-<% } %>
-<h3><%= post.userName %></h3>
-<h1><%= post.title %></h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
-<p><%- post.description.replaceAll('\n', '<br>') %></p>
-<% if(user?._id.equals(post.user)) { %>
-    <a href="/posts/<%= post._id %>/edit">Edit Post</a>
-<% } %>
-<h2>Comments:</h2>
-<% post.comments.forEach(function(c) { %>
-    <div>
-        <h4><%= c.userName %></h4>
-        <h3><%- c.content.replaceAll('\n', '<br>') %></h3>
+<article class="show-post">
+    <h3> <span class="light">Submitted by:</span> <%= post.userName %></h3>
+    <h1><%= post.title %></h1>
+    <iframe width="888" height="500" src="https://www.youtube.com/embed/<%= post.video %>" frameborder="0"></iframe>
+    <h2 id="desc">Description:</h2>
+    <p><%- post.description.replaceAll('\n', '<br>') %></p>
+    <% if(user?._id.equals(post.user)) { %>
+        <a href="/posts/<%= post._id %>/edit">Edit Post</a>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <input id="delete" type="submit" value="Delete Post">
+        </form>
+    <% } %>
+    <h2>Comments:</h2>
+    <% post.comments.forEach(function(c) { %>
+        <div class="comments">
+            <h4><span class="light">User:</span> <%= c.userName %></h4>
+            <p><%- c.content.replaceAll('\n', '<br>') %></p>
+        </div>
         <% if(user?._id.equals(post.user)) { %>
             <form action="/posts/<%= c._id %>/comments?_method=DELETE" method="POST">
-                <button type="submit">X</button>
+                <input id="delete" type="submit" value="Delete Comment">
             </form>
         <% } %>
-    </div>
-<% }) %>
-<form action="/posts/<%= post._id %>/comments" method="POST">
-    <label>Add Comment:
+    <% }) %>
+    <form class="post" id="post-comment" action="/posts/<%= post._id %>/comments" method="POST">
+        <h2>Add Comment:</h2>
         <textarea name="content"></textarea>
         <button type="submit">Submit</button>
-    </label>
-</form>
-
-<%- include('../partials/footer') %>
+    </form>
+</article>
+        
+        <%- include('../partials/footer') %>
+        

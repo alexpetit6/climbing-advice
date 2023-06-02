@@ -121,13 +121,16 @@ i {
 }
 
 .post > input, textarea {
+  background-color: transparent;
+  border: solid 0.75vmin rgb(0, 0, 51);
+  border-radius: 1vmin;
   width: 50vmin;
+  font-family: 'Mukta', sans-serif;
 }
 
 .post > input {
   height: 5vmin;
   font-size: 2vmin;
-  font-family: 'Mukta', sans-serif;
 }
 
 .post > textarea {
@@ -148,4 +151,66 @@ i {
 
 .post > button:hover {
   border: solid 0.75vmin rgb(255 250 129)
+}
+
+.show-post {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-post > :not(h1) {
+  margin-left: 20vmin;
+}
+
+.show-post > h1 {
+  text-align: center;
+  font-size: 5vmin;
+}
+
+.show-post > iframe {
+  box-shadow: 8px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: 0 auto;
+}
+
+.show-post > p {
+  padding: 2vmin;
+  margin: 0 20vmin 1vmin;
+  border: solid 1vmin rgb(0, 0, 51);
+  font-size: 2.7vmin;
+}
+
+#delete {
+  padding: 0;
+  margin-top: 1vmin;
+  background-color: cornsilk;
+  border: none;
+  font-family: 'Mukta', sans-serif;
+  text-decoration: underline;
+}
+
+#delete:hover {
+  color: red;
+}
+
+.light {
+  font-weight: 200;
+}
+
+#desc {
+  margin: 2vmin auto 0;
+}
+
+.comments > * {
+  margin: 0;
+  padding: 0;
+}
+
+.comments > p {
+  margin-right: 20vmin;
+  border: solid 0.5vmin rgb(0, 0, 51);
+  padding: 1vmin;
+}
+
+#post-comment {
+  margin:0 auto 7vmin;
 }
