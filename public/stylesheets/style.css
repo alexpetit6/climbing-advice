@@ -60,11 +60,36 @@ html, body {
 
 .text {
   margin-left: 5vmin;
+  text-align: center;
 }
 
 .text > h1 {
   font-size: 7vmin;
   text-align: center;
+}
+
+i {
+  color: red
+}
+
+.imgs {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+  border: solid 1vmin rgb(0, 0, 51)
+}
+
+.imgs > img {
+  border: solid 0.75vmin black;
+  margin: 3vmin;
+}
+
+#step1 {
+  height: 50vmin;
+}
+
+#step2 {
+  height: 50vmin;
 }
 
 .list {
@@ -85,4 +110,42 @@ html, body {
 .list > li > span {
   margin: 0 4vmin;
   font-size: 20vmin;
+}
+
+.post {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 80vmin 40vmin;
+  justify-content: center;
+  place-items: center;
+}
+
+.post > input, textarea {
+  width: 50vmin;
+}
+
+.post > input {
+  height: 5vmin;
+  font-size: 2vmin;
+  font-family: 'Mukta', sans-serif;
+}
+
+.post > textarea {
+  height: 10vmin;
+}
+
+.post > button {
+  font-size: 3vmin;
+  height: 10vmin;
+  width: 30vmin;
+  background-color: rgb(0, 0, 51);
+  color: rgb(255 250 129);
+  margin-top: 5vmin;
+  grid-column: span 2;
+  border: none;
+  border-radius: 10vmin;
+}
+
+.post > button:hover {
+  border: solid 0.75vmin rgb(255 250 129)
 }
